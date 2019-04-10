@@ -2,13 +2,24 @@ package com.banco.models;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+@Entity
 public class Conta {
-
+	@Id
+	@GeneratedValue
 	private int id;
+	@NotNull
 	private String cpf;
+	@NotNull
 	private double saldo;
+	@NotNull
 	private Date dataDeAbertura;
+	@NotNull
 	private double salarioBruto;
+	@NotNull
 	private double salarioLiquido;
 
 	//Construtor

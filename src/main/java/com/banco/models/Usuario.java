@@ -1,13 +1,31 @@
 package com.banco.models;
 
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Usuario {
+	@Id
+	@GeneratedValue
 	private int id;
+	@NotNull
 	private String nome;
+	@NotNull
 	private String email;
+	@NotNull
 	private String cpf;
+	@NotNull
 	private String telefone;
+	@NotNull
 	private int tipo;
+	@NotNull
 	private String senha;
+	@NotNull
+	private Date dataNasc;
 	
 	//Construtor
 	public Usuario() {
@@ -25,6 +43,10 @@ public class Usuario {
 	//Getters
 	public String getSenha() {
 		return senha;
+	}
+	
+	public Date getDataNasc() {
+		return dataNasc;
 	}
 	public int getId() {
 		return id;
@@ -48,6 +70,9 @@ public class Usuario {
 	//Setters
 	public void setSenha(String senha) {
 		this.senha=senha;
+	}
+	public void setDataNasc(Date dataNasc) {
+		this.dataNasc=dataNasc;
 	}
 	public void setId(int id) {
 		this.id = id;

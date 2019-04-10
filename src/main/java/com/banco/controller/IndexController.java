@@ -18,10 +18,28 @@ public class IndexController {
 	public String index() {
 		return "index";
 	}
-	@RequestMapping(value="cadastrarCliente", method=RequestMethod.GET)
+	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.GET)
 	public String cadastrarCliente() {
 		return "cadastro/cadastroCliente";
 	}
+	
+	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.POST)
+	public String cadastrarCliente(Usuario usuario) {
+		Usuario u= new Usuario();
+		u.setCpf(usuario.getCpf());
+		u.setDataNasc(usuario.getDataNasc());
+		u.setEmail(usuario.getEmail());
+		u.setNome(usuario.getNome());
+		u.setSenha(usuario.getSenha());
+		u.setTelefone(u.getTelefone());
+		u.setTipo(usuario.getTipo());
+		usuarioRepository.save(u);
+		return "redirect:/";
+		
+	}
+	
+	
+	
 	@RequestMapping(value="sobre", method=RequestMethod.GET)
 	public String sobre() {
 		return "about";
