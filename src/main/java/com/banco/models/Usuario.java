@@ -1,12 +1,26 @@
 package com.banco.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Usuario {
+	@Id
+	@GeneratedValue
 	private int id;
+	@NotNull
 	private String nome;
+	@NotNull
 	private String email;
+	@NotNull
 	private String cpf;
+	@NotNull
 	private String telefone;
+	@NotNull
 	private int tipo;
+	@NotNull
 	private String senha;
 	
 	//Construtor
