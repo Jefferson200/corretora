@@ -22,6 +22,17 @@ public class IndexController {
 	public String cadastrarCliente() {
 		return "cadastro/cadastroCliente";
 	}
+	
+	@RequestMapping(value="cadastrarCliente", method=RequestMethod.POST)
+	public String cadastrarCliente(Usuario usuario) {
+		
+		usuarioRepository.save(usuario);
+		return "redirect:/";
+		
+	}
+	
+	
+	
 	@RequestMapping(value="sobre", method=RequestMethod.GET)
 	public String sobre() {
 		return "about";
