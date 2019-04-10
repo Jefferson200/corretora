@@ -7,6 +7,7 @@ public class Usuario {
 	private String cpf;
 	private String telefone;
 	private int tipo;
+	private String senha;
 	
 	//Construtor
 	public Usuario() {
@@ -22,6 +23,9 @@ public class Usuario {
 	}
 	
 	//Getters
+	public String getSenha() {
+		return senha;
+	}
 	public int getId() {
 		return id;
 	}
@@ -42,7 +46,9 @@ public class Usuario {
 	}
 	
 	//Setters
-	
+	public void setSenha(String senha) {
+		this.senha=senha;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}
