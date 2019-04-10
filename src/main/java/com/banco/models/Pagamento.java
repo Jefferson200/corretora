@@ -1,7 +1,11 @@
 package com.banco.models;
 
-public class Pagamento {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Pagamento {
+	@Id
 	private String cpf;
 	private int qtdParcelas;
 	private int qtdParcelasPagas;

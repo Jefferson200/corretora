@@ -1,11 +1,24 @@
 package com.banco.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Endereco {
+	@Id
+	@GeneratedValue
 	private int id;
+	@NotNull
 	private String logradouro;
+	@NotNull
 	private String cep;
+	@NotNull
 	private int numero;
+	@NotNull
 	private String complemento;
+	@NotNull
 	private String cidade;
 	
 	//Construtores
