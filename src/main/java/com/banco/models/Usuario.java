@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario {
@@ -25,6 +26,8 @@ public class Usuario {
 	private String senha;
 	
 	private Date data;
+	@OneToOne
+	Endereco endereco;
 	
 	//Construtor
 	public Usuario() {

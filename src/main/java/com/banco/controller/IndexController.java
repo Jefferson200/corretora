@@ -78,9 +78,5 @@ public class IndexController {
 	}
 		
 	
-	@RequestMapping(value="/home", method=RequestMethod.GET)
-	public String home() {
-		return "home";
-	}
 	
 }

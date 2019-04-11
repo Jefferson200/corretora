@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Cadastro Cliente</title>
-
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
 					placeholder="Nome Completo">
 			</p>
 			<p>
-				<label>Email:</label> <input type="email" name="email"/>
+				<label>Email:</label> <input type="email" name="email" placeholder="Informe o e-mail"/>
 
 			<p>
 				<label>Data de Nascimento:</label> <input type="date"
@@ -38,38 +38,32 @@
 					placeholder="Informe a senha desejada" />
 			</p>
 			
-			<!--  
 			<p>
-				<label>Rua:</label> <input type="text" name="streetUser"
+				<label>Logradouro:</label> <input type="text" name="logradouro"
 					placeholder="Rua"></br>
 			</p>
 			<p>
-				<label>Estado:</label> <input type="text" name="addressUser"
-					placeholder="Estado">
+				<label>Cidade:</label> <input type="text" name="cidade"
+					placeholder="cidade">
+				<label>Estado:</label> <input id="estado" type="text" name="estado" >
 			</p>
 			<p>
-				<label>Numero:</label> <input type="text" name="numberAddressUser"
-					placeholder="Numero do Estabelecimento"></br>
+				<label>CEP:</label> <input type="text" name="cep"
+					placeholder="cep">
+			</p>
+			<p>
+				<label>Complemento:</label> <input type="text" name="complemento"
+					placeholder="complemento">
+			</p>
+			<p>
+				<label>Numero:</label> <input type="text" name="numero"
+					placeholder="NÃºmero"></br>
 			</p>
 		
-			<p>
-				<label>Salario Bruto: </label> <input type="text"
-					name="salarioBruto" placeholder="Informe seu salário bruto" />
-			</p>
-			<p>
-				<label> Salario Liquido: </label> <input type="text"
-					name="salarioLiquido" placeholder="Informe seu salário liquido" />
-			</p>
-			<p>
-				<label>Saldo: </label> <input type="text" name="saldo"
-					placeholder="Informe seu saldo" />
-			</p>
-			<p>
-				<label>Data de Abertura: </label> <input type="date"
-					name="dataAbertura" placeholder="Informe a data de abertura" />
-			</p>
-			-->
 
+		
+			
+			
 			<button type="submit">Cadastrar Cliente</button>
 
 		</div>

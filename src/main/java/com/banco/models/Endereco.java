@@ -3,6 +3,7 @@ package com.banco.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -20,6 +21,9 @@ public class Endereco {
 	private String complemento;
 	@NotNull
 	private String cidade;
+	
+	@OneToOne
+	Usuario usuario;
 	
 	//Construtores
 	public Endereco() {
