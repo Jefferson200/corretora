@@ -1,5 +1,6 @@
 package com.banco.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,7 @@ import com.banco.models.Usuario;
 
 @Controller
 public class IndexController {
-	
+	@Autowired
 	UsuarioRepository usuarioRepository;
 
 	@RequestMapping("/")
@@ -24,15 +25,12 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.POST)
-	public String cadastrarCliente(Usuario usuario) {
-		Usuario u= new Usuario(usuario.getNome(), usuario.getEmail(), 
-				usuario.getCpf(),
-				usuario.getTelefone(),
-				usuario.getTipo(), 
-				usuario.getSenha(), usuario.getDataNasc());
-		
+	public String cadastrarCliente(String nome, String email, String cpf, String telefone, int tipo, String senha, String data) {
+		Usuario u = new Usuario(nome,email,cpf,telefone,tipo,senha,data);
 		
 		usuarioRepository.save(u);
+		
+		
 		return "redirect:/";
 		
 	}
