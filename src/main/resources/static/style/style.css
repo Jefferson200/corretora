@@ -1,0 +1,47 @@
+#estado{
+	width:1.4em;
+	
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	
+}
+
+form{
+	font-size: 1.3em;
+	background-image: linear-gradient(#b4c0fe, #FFFFFF);
+	max-width: 100%;
+	border-radius: 0.3%;
+	margin: 0px auto;
+	padding: 10px 10px 10px 10px;
+}
+
+h2{
+	color: #ffffff;
+}
+
+p{
+	margin:auto;
+	padding: auto;
+}
+
+input{
+	width: 400px;
+	padding: 4px;
+
+}
+
+button{
+
+	background: #069;
+	height: 30px;
+	width: 150px;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 1px solid;
+	color: #fff;
+	cursor: pointer; 
+}
+

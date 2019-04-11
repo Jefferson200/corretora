@@ -18,6 +18,9 @@ public class DataConfiguration {
         dataSource.setUrl("jdbc:mysql://localhost:3306/banco");
         dataSource.setUsername("root");
         dataSource.setPassword("abcde1234");
+
+        dataSource.setPassword("");
+
         return dataSource;
     }
 	

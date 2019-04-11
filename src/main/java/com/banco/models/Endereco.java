@@ -1,20 +1,37 @@
 package com.banco.models;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Endereco {
+	@Id
+	@GeneratedValue
 	private int id;
+	
 	private String logradouro;
+	
 	private String cep;
+	
 	private int numero;
+	
 	private String complemento;
+	
 	private String cidade;
+	
+	@OneToMany
+	private List<Usuario> usuarios;
 	
 	//Construtores
 	public Endereco() {
 		
 	}
 	
-	public Endereco(int id, String logradouro, String cep, int numero, String complemento, String cidade) {
-		this.id = id;
+	public Endereco(String logradouro, String cep, int numero, String complemento, String cidade) {
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.numero = numero;
