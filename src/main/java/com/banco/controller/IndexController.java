@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.banco.Repository.ContaRepository;
 import com.banco.Repository.UsuarioRepository;
@@ -19,6 +20,8 @@ public class IndexController {
 	
 	@Autowired
 	ContaRepository contaRepository;
+	
+	private String cpf;
 
 	@RequestMapping("/")
 	public String index() {
@@ -63,6 +66,7 @@ public class IndexController {
 		if(usuarioRepository.findByEmail(usuario.getEmail()) != null){
 			Usuario u= usuarioRepository.findByEmail(usuario.getEmail());
 			if(u.getSenha()==usuario.getSenha()) {
+				cpf=usuario.getCpf();
 				return "redirect:/home";
 			}
 		
@@ -76,7 +80,14 @@ public class IndexController {
 	}
 	
 	
-		
+
+	@RequestMapping(value="/consultaSaldo", method=RequestMethod.GET)
+	public ModelAndView consultaSaldo() {
+		ModelAndView mav=new ModelAndView("transacoes/consultaSaldo");
+		mav.addObject("conta",contaRepository.findByCpf(cpf));
+		return mav;
+	}
+
 	
 	
 }
