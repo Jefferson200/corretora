@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import com.banco.Repository.ContaRepository;
 import com.banco.Repository.UsuarioRepository;
 import com.banco.models.Conta;
 import com.banco.models.Usuario;
@@ -15,6 +15,9 @@ import com.banco.models.Usuario;
 public class IndexController {
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	ContaRepository contaRepository;
 
 	@RequestMapping("/")
 	public String index() {
@@ -32,18 +35,19 @@ public class IndexController {
 		usuarioRepository.save(usuario);
 		
 		
-		return "redirect: /conta";
+		return "redirect:/cadastrarConta";
 		
 	}
 	
 	@RequestMapping(value="/cadastrarConta", method=RequestMethod.GET)
 	public String cadastrarConta() {
-		return "CadastroConta";
+		return "cadastro/CadastroConta";
 	}
 	
 	@RequestMapping(value="/cadastrarConta", method=RequestMethod.POST)
 	public String cadastrarConta(Conta conta) {
-		return "CadastroConta";
+		contaRepository.save(conta);
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(value="sobre", method=RequestMethod.GET)
@@ -73,5 +77,10 @@ public class IndexController {
 		return "home";
 	}
 		
+	
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
 	
 }
