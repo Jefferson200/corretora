@@ -1,0 +1,27 @@
+.navHeader a{
+	margin: 0px;
+	padding: 5px;
+	background: gray;
+	color: white;
+	font-size: 20px;
+}
+
+.navHeader a:hover{
+	background: black;
+}
+
+.navHeader{
+	margin-left: 1000px;
+}
+
+.divHeader h2{
+	text-align: center;
+}
+
+.rodape p{
+	color:white;
+	font-size: 25px;
+	background: gray;
+	margin-top: 400px;
+	text-align: center;
+}
