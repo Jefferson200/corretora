@@ -68,7 +68,7 @@ public class IndexController {
 			
 			Usuario u = usuarioRepository.findByEmail(usuario.getEmail());
 			if (u.getSenha().equals(usuario.getSenha())) {
-				cpf = usuario.getCpf();
+				cpf = u.getCpf();
 				return "redirect:/home";
 			}
 
