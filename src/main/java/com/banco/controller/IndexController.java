@@ -29,7 +29,7 @@ public class IndexController {
 				usuario.getCpf(),
 				usuario.getTelefone(),
 				usuario.getTipo(), 
-				usuario.getSenha());
+				usuario.getSenha(), usuario.getDataNasc());
 		
 		
 		usuarioRepository.save(u);
