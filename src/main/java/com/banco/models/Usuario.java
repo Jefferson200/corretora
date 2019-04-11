@@ -2,6 +2,7 @@ package com.banco.models;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,7 +27,8 @@ public class Usuario {
 	private String senha;
 	
 	private Date data;
-	@OneToOne
+	
+	@OneToOne(cascade = {CascadeType.ALL})
 	Endereco endereco;
 	
 	//Construtor
@@ -69,6 +71,10 @@ public class Usuario {
 	public int getTipo() {
 		return tipo;
 	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	
 	
 	//Setters
 	public void setSenha(String senha) {
@@ -94,6 +100,9 @@ public class Usuario {
 	}
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 	
 
