@@ -33,6 +33,7 @@ public class IndexController {
 		u.setSenha(usuario.getSenha());
 		u.setTelefone(u.getTelefone());
 		u.setTipo(usuario.getTipo());
+		
 		usuarioRepository.save(u);
 		return "redirect:/";
 		
