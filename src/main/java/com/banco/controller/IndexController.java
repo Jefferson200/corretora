@@ -59,8 +59,10 @@ public class IndexController {
 		}
 		return "redirect:/";
 	}
-	
-	
-	
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+	public String home() {
+		return "home";
+	}
+		
 	
 }
