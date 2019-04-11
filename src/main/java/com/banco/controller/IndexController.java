@@ -25,14 +25,12 @@ public class IndexController {
 	
 	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.POST)
 	public String cadastrarCliente(Usuario usuario) {
-		Usuario u= new Usuario();
-		u.setCpf(usuario.getCpf());
-		u.setDataNasc(usuario.getDataNasc());
-		u.setEmail(usuario.getEmail());
-		u.setNome(usuario.getNome());
-		u.setSenha(usuario.getSenha());
-		u.setTelefone(u.getTelefone());
-		u.setTipo(usuario.getTipo());
+		Usuario u= new Usuario(usuario.getNome(), usuario.getEmail(), 
+				usuario.getCpf(),
+				usuario.getTelefone(),
+				usuario.getTipo(), 
+				usuario.getSenha());
+		
 		
 		usuarioRepository.save(u);
 		return "redirect:/";

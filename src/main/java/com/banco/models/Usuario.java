@@ -31,13 +31,13 @@ public class Usuario {
 	public Usuario() {
 		
 	}
-	public Usuario(int id, String nome, String email, String cpf, String telefone, int tipo) {
-		this.id = id;
+	public Usuario(String nome, String email, String cpf, String telefone, int tipo, String senha) {
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
 		this.telefone = telefone;
 		this.tipo = tipo;
+		this.senha = senha;
 	}
 	
 	//Getters
