@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.banco.Repository.ContaRepository;
 import com.banco.Repository.UsuarioRepository;
@@ -62,7 +63,7 @@ public class IndexController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Usuario usuario) {
+	public String login(Usuario usuario, RedirectAttributes attributes) {
 		
 		if (usuarioRepository.findByEmail(usuario.getEmail()) != null) {
 			
@@ -71,10 +72,11 @@ public class IndexController {
 				cpf = u.getCpf();
 				return "redirect:/home";
 			}
-
-			return "redirect:/";
+			attributes.addFlashAttribute("mensagem", "Email ou senha incorretos");
+			return "redirect:/login";
 		}
-		return "redirect:/";
+		attributes.addFlashAttribute("mensagem", "Email ou senha incorretos");
+		return "redirect:/login";
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
