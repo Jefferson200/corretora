@@ -75,8 +75,11 @@ public class IndexController {
 		return "redirect:/";
 	}
 	@RequestMapping(value="/home", method=RequestMethod.GET)
-	public String home() {
-		return "home";
+	public ModelAndView home() {
+		ModelAndView mv = new ModelAndView("home");
+		Usuario usuario =  usuarioRepository.findByCpf(cpf);
+		mv.addObject("usuario", usuario);
+		return mv;
 	}
 	
 	
