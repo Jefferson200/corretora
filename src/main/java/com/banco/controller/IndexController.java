@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import com.banco.Repository.UsuarioRepository;
+import com.banco.models.Conta;
 import com.banco.models.Usuario;
 
 
@@ -31,11 +32,19 @@ public class IndexController {
 		usuarioRepository.save(usuario);
 		
 		
-		return "redirect:/";
+		return "redirect: /conta";
 		
 	}
 	
+	@RequestMapping(value="/cadastrarConta", method=RequestMethod.GET)
+	public String cadastrarConta() {
+		return "CadastroConta";
+	}
 	
+	@RequestMapping(value="/cadastrarConta", method=RequestMethod.POST)
+	public String cadastrarConta(Conta conta) {
+		return "CadastroConta";
+	}
 	
 	@RequestMapping(value="sobre", method=RequestMethod.GET)
 	public String sobre() {
