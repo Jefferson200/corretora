@@ -45,7 +45,7 @@ public class Usuario {
 		return senha;
 	}
 	
-	public Date getDataNasc() {
+	public Date getData() {
 		return data;
 	}
 	public int getId() {
@@ -71,7 +71,7 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha=senha;
 	}
-	public void setDataNasc(Date  data) {
+	public void setData(Date  data) {
 		this.data =data;
 	}
 	public void setId(int id) {

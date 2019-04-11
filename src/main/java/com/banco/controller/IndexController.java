@@ -26,7 +26,7 @@ public class IndexController {
 	
 	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.POST)
 	public String cadastrarCliente(Usuario usuario) {
-		
+		System.out.println(usuario.getData());
 		
 		usuarioRepository.save(usuario);
 		
