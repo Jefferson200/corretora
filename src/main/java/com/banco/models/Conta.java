@@ -23,14 +23,14 @@ public class Conta {
 	private double salarioLiquido;
 
 	//Construtor
-	public Conta(int id, String cpf, double saldo, Date dataDeAbertura, double SalarioBruto, 
+	public Conta(String cpf, double saldo, Date dataDeAbertura, double salarioBruto, 
 			     double salarioLiquido) {
 
-	this.id = id;
+	
 	this.cpf = cpf;
 	this.saldo = saldo;
 	this.dataDeAbertura = dataDeAbertura;
-	this.salarioBruto = SalarioBruto;
+	this.salarioBruto = salarioBruto;
 	this.salarioLiquido = salarioLiquido;
 
 	}

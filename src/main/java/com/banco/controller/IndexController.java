@@ -47,7 +47,7 @@ public class IndexController {
 	@RequestMapping(value="/cadastrarConta", method=RequestMethod.POST)
 	public String cadastrarConta(Conta conta) {
 		contaRepository.save(conta);
-		return "CadastroConta";
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(value="sobre", method=RequestMethod.GET)
@@ -71,6 +71,11 @@ public class IndexController {
 		return "redirect:/";
 		}
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+	public String home() {
+		return "home";
 	}
 	
 }
