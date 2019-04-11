@@ -1,9 +1,11 @@
 package com.banco.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -11,27 +13,26 @@ public class Endereco {
 	@Id
 	@GeneratedValue
 	private int id;
-	@NotNull
+	
 	private String logradouro;
-	@NotNull
+	
 	private String cep;
-	@NotNull
+	
 	private int numero;
-	@NotNull
+	
 	private String complemento;
-	@NotNull
+	
 	private String cidade;
 	
-	@OneToOne
-	Usuario usuario;
+	@OneToMany
+	private List<Usuario> usuarios;
 	
 	//Construtores
 	public Endereco() {
 		
 	}
 	
-	public Endereco(int id, String logradouro, String cep, int numero, String complemento, String cidade) {
-		this.id = id;
+	public Endereco(String logradouro, String cep, int numero, String complemento, String cidade) {
 		this.logradouro = logradouro;
 		this.cep = cep;
 		this.numero = numero;

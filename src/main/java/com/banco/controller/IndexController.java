@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.banco.Repository.ContaRepository;
 import com.banco.Repository.UsuarioRepository;
 import com.banco.models.Conta;
+import com.banco.models.Endereco;
 import com.banco.models.Usuario;
 
 
@@ -29,12 +30,9 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.POST)
-	public String cadastrarCliente(Usuario usuario) {
-		System.out.println(usuario.getData());
-		
+	public String cadastrarCliente(Usuario usuario, Endereco endereco) {
+		usuario.setEndereco(endereco);
 		usuarioRepository.save(usuario);
-		
-		
 		return "redirect:/cadastrarConta";
 		
 	}
