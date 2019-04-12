@@ -2,11 +2,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
+<script>
+	function alerta() {
+		alert("Email ou senha incorretos");
+	}
+</script>
 </head>
 
 
-<body>
-<span th:text="${mensagem}"></span>
+<body  th:if="${not #strings.isEmpty(mensagem)}">
+	<script>
+	alerta()</script>
 </body>
 </html>
