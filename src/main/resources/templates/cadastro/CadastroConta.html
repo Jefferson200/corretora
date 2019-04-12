@@ -12,7 +12,7 @@
 		<h2>Cadastro da Conta</h2>
 		<p>
 			<label>CPF: </label>
-			<input type="text" name="cpf" placeholder="Informe seu cpf" required="required"/>
+			<input type="text" name="cpf" th:value="${cpf}" readonly="true" required="required"/>
 		</p>
 		<p>
 			<label>Salario Bruto: </label>
