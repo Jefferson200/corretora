@@ -97,4 +97,8 @@ public class IndexController {
 		return mav;
 	}
 
+	@RequestMapping("/esqueceuSenha")
+	public String esqueceuSenha() {
+		return  "esqueceuSenha";
+	}
 }
