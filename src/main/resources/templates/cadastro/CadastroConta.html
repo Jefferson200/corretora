@@ -11,8 +11,12 @@
 	  
 		<h2>Cadastro da Conta</h2>
 		<p>
-			<label>CPF: </label>
-			<input type="text" name="cpf" th:value="${cpf}" readonly="true" required="required"/>
+			<label th:if="${not #strings.isEmpty(cpf)}">CPF: </label>
+			<input th:if="${not #strings.isEmpty(cpf)}"type="text" name="cpf" th:value="${cpf}" readonly="true" />
+		</p>
+		<p>
+			<label  th:if="${not #strings.isEmpty(cnpj)}">CNPJ: </label>
+			<input  th:if="${not #strings.isEmpty(cnpj)}" type="text" name="cpf" th:value="${cnpj}" readonly="true" />
 		</p>
 		<p>
 			<label>Salario Bruto: </label>

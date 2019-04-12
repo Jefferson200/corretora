@@ -22,6 +22,7 @@ public class IndexController {
 	ContaRepository contaRepository;
 
 	private String cpf;
+	private String cnpj;
 
 	@RequestMapping("/")
 	public String index() {
@@ -37,6 +38,7 @@ public class IndexController {
 	public String cadastrarCliente(Usuario usuario, Endereco endereco) {
 		usuario.setEndereco(endereco);
 		cpf=usuario.getCpf();
+		cnpj=usuario.getCnpj();
 		usuarioRepository.save(usuario);
 		return "redirect:/cadastrarConta";
 
@@ -45,7 +47,10 @@ public class IndexController {
 	@RequestMapping(value = "/cadastrarConta", method = RequestMethod.GET)
 	public ModelAndView cadastrarConta() {
 		ModelAndView mav= new ModelAndView("cadastro/CadastroConta");
+		if(cpf!=null)
 		mav.addObject("cpf", cpf);
+		else if(cnpj!=null)
+		mav.addObject("cnpj", cnpj);
 		return mav;
 	}
 
