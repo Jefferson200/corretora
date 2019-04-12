@@ -1,0 +1,92 @@
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+   }
+
+ 
+
+a{
+    text-decoration: none;
+}
+
+ul li,ol{
+    list-style: none;
+}
+
+header{
+    background-image: linear-gradient(rgb(82, 82, 223), rgb(50, 37, 109));
+}
+
+.logoindra{
+    width: 22%;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu li a {
+    padding: 10px 20px 10px 20px;
+    color: white;
+    font-size: 20px;
+}
+
+
+#login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.banner{
+    width: 40%;
+}
+
+.banner h1{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    text-align: center;
+    color: blue;
+}
+
+.banner p{
+    text-align: center;
+    color: black;
+}
+
+#linha {
+    margin: 70px;
+    border-bottom: 1px solid #2c3096;
+}
+
+  .rodape {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+}
+
+  .logos{   
+    width: 20%;    
+}
+
+.logos-exp {
+    width: 10%;
+}
