@@ -3,6 +3,9 @@
 	padding: 0;
 }
 
+
+
+
 body, html{
 	min-height: 100%;
 }
@@ -115,11 +118,12 @@ p{
 
 .area{
 	width: 100%;
-	max-width: 1170px;
+	max-width: 100%;
 	padding: 80px;
 	color: #000000;
 	text-shadow: 1px 1px 0 rgba(0,0,0..2);
 	text-align: center;
+	
 
 }
 	

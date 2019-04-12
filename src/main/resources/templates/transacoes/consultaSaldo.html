@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Consulta de Saldo</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="style/formatacaoPaginas.css">
+<title>SISTEMA DE BANCO - HOME</title>
 </head>
 <body>
+<head>
 
-<div>
+<nav class="menu">
+	<ul>
+		<li><a href="/home">Home</a></li>
+		<li><a href="#">opções</a>
+			<ul>
+				<li><a href="consultaSaldo">Saldo</a></li>
+				<li><a href="#">Transações</a></li>
+			</ul>
+
+		</li>
+	</ul>
+</head>
+
+<body>
+
+		
 	<p><span th:text="${conta.saldo}"></span></p>
 
-
-</div>
-
-
-
+</body>
+<footer>
+	<div class="rodape">
+		<p>Copyright||&copy;</p>
+	</div>
+</footer>
 </body>
 </html>
