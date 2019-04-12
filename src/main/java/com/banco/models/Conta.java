@@ -50,7 +50,7 @@ public class Conta {
 		return saldo;
 	}
 	
-	public Date getDatadeAbertura() {
+	public Date getDataDeAbertura() {
 		return dataDeAbertura;
 	}
 	
@@ -75,7 +75,7 @@ public class Conta {
         this.saldo = saldo;
     }
     
-    public void setData(Date dataDeAbertura) {
+    public void setDataDeAbertura(Date dataDeAbertura) {
     	this.dataDeAbertura = dataDeAbertura;
     }
     
