@@ -4,8 +4,24 @@
 <title>Cadastro Cliente</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style/style.css">
+
+
+<script>
+function verifica(value){
+	var input = document.getElementById("cpf");
+	var input2 = document.getElementById("cnpj");
+	
+	if(value==1){
+		input.disabled=false;
+		input2.disabled=true;
+	}else{
+		input.disabled=true;
+		input2.disabled=false;
+	}
+}
+</script>
 </head>
-<body>
+<body onload="verifica(1)">
 
 	<form class="Cadastrar" method="post">
 		<div id="addUser">
@@ -20,15 +36,21 @@
 			<p>
 				<label>Data de Nascimento:</label> <input type="date" name="data"></br>
 			</p>
-			<label for="tipo">Tipo:</label> <select name="tipo">
-				<option value="1">Fisica</option>
+			<label for="tipo">Tipo:</label>
+			 <select name="tipo" onchange="verifica(this.value)"  >
+				<option value="1" selected>Fisica</option>
 				<option value="2">Juridica</option>
 			</select>
 
 			<p>
-				<label>CPF: </label> <input type="text" name="cpf"
+				<label>CPF: </label> <input type="text" id="cpf" name="cpf"
 					placeholder="Informe seu cpf" />
 			</p>
+			<p>
+				<label>CNPJ: </label> <input type="text" id="cnpj" name="cnpj"
+					placeholder="Informe seu CNPJ" />
+			</p>
+			
 			<p>
 				<label>Telefone: </label> <input type="text" name="telefone"
 					placeholder="Informe seu telefone" />
