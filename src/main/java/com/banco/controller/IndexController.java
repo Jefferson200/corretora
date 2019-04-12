@@ -36,14 +36,17 @@ public class IndexController {
 	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.POST)
 	public String cadastrarCliente(Usuario usuario, Endereco endereco) {
 		usuario.setEndereco(endereco);
+		cpf=usuario.getCpf();
 		usuarioRepository.save(usuario);
 		return "redirect:/cadastrarConta";
 
 	}
 
 	@RequestMapping(value = "/cadastrarConta", method = RequestMethod.GET)
-	public String cadastrarConta() {
-		return "cadastro/CadastroConta";
+	public ModelAndView cadastrarConta() {
+		ModelAndView mav= new ModelAndView("cadastro/CadastroConta");
+		mav.addObject("cpf", cpf);
+		return mav;
 	}
 
 	@RequestMapping(value = "/cadastrarConta", method = RequestMethod.POST)
