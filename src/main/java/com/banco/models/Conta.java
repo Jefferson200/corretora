@@ -21,7 +21,9 @@ public class Conta {
 	private double salarioBruto;
 	@NotNull
 	private double salarioLiquido;
-
+	
+	public Conta() {}
+	
 	//Construtor
 	public Conta(String cpf, double saldo, Date dataDeAbertura, double salarioBruto, 
 			     double salarioLiquido) {
