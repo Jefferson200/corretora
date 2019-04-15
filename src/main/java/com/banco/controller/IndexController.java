@@ -141,15 +141,19 @@ public class IndexController {
 		ModelAndView mav = new ModelAndView("transacoes/emprestimo");
 		Conta conta=null;
 		double juros=0.0;
+		
 		if (cpf != null) {
 			conta=contaRepository.findByCpf(cpf);
 			mav.addObject("conta", conta);
+			mav.addObject("disponivel", (conta.getSalarioLiquido()/2)*12);
 			if(conta.getSalarioLiquido()<1000) {
 				juros=0.02;
 				mav.addObject("juros", juros);
+				
 			}else if(conta.getSalarioLiquido()<5000) {
 				juros=0.05;
 				mav.addObject("juros", juros);
+				
 			}else {
 				juros=0.1;
 				mav.addObject("juros", juros);
