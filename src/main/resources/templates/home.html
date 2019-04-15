@@ -8,9 +8,7 @@
 </head>
 <body>
 <head>
-<!--<div class="divHeader">
-	<h2>Bem Vindo</h2>-->
-</div>
+
 <nav class="menu">
 	<ul>
 		<li><a href="#">Home</a></li>
@@ -21,8 +19,8 @@
 			</ul>
 
 		<li> NOME - <span th:text="${usuario.nome}"></span></li>
-		<li> CPF - <span th:text="${usuario.cpf}"></span></li>		
-
+		<li th:if="${not #strings.isEmpty(cpf)}"> CPF - <span  th:text="${usuario.cpf}"></span></li>		
+		<li th:if="${not #strings.isEmpty(cnpj)}"> CNPJ - <span  th:text="${usuario.cnpj}"></span></li>		
 		
 
 		</li>

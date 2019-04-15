@@ -11,8 +11,10 @@ public class Conta {
 	@Id
 	@GeneratedValue
 	private int id;
-	@NotNull
+
 	private String cpf;
+	
+	private String cnpj;
 	@NotNull
 	private double saldo;
 	@NotNull
@@ -26,7 +28,7 @@ public class Conta {
 	
 	//Construtor
 	public Conta(String cpf, double saldo, Date dataDeAbertura, double salarioBruto, 
-			     double salarioLiquido) {
+			     double salarioLiquido, String cnpj) {
 
 	
 	this.cpf = cpf;
@@ -34,6 +36,7 @@ public class Conta {
 	this.dataDeAbertura = dataDeAbertura;
 	this.salarioBruto = salarioBruto;
 	this.salarioLiquido = salarioLiquido;
+	this.cnpj = cnpj;
 
 	}
 	
@@ -44,6 +47,9 @@ public class Conta {
 	
 	public String getCpf() {
 		return cpf;
+	}
+	public String getCnpj() {
+		return cnpj;
 	}
 	
 	public double getSaldo() {
@@ -63,6 +69,9 @@ public class Conta {
 	}
 	
 	//Setters
+	public void setCnpj(String cnpj) {
+		this.cnpj=cnpj;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}

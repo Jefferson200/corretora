@@ -7,4 +7,5 @@ import com.banco.models.Usuario;
 public interface UsuarioRepository extends CrudRepository<Usuario, String> {
 	Usuario findByEmail(String email);
 	Usuario findByCpf(String cpf);
+	Usuario findByCnpj(String cnpj);
 }

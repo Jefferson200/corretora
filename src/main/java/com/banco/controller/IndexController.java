@@ -37,8 +37,8 @@ public class IndexController {
 	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.POST)
 	public String cadastrarCliente(Usuario usuario, Endereco endereco) {
 		usuario.setEndereco(endereco);
-		cpf=usuario.getCpf();
-		cnpj=usuario.getCnpj();
+		cpf = usuario.getCpf();
+		cnpj = usuario.getCnpj();
 		usuarioRepository.save(usuario);
 		return "redirect:/cadastrarConta";
 
@@ -46,11 +46,11 @@ public class IndexController {
 
 	@RequestMapping(value = "/cadastrarConta", method = RequestMethod.GET)
 	public ModelAndView cadastrarConta() {
-		ModelAndView mav= new ModelAndView("cadastro/CadastroConta");
-		if(cpf!=null)
-		mav.addObject("cpf", cpf);
-		else if(cnpj!=null)
-		mav.addObject("cnpj", cnpj);
+		ModelAndView mav = new ModelAndView("cadastro/CadastroConta");
+		if (cpf != null)
+			mav.addObject("cpf", cpf);
+		else if (cnpj != null)
+			mav.addObject("cnpj", cnpj);
 		return mav;
 	}
 
@@ -72,12 +72,15 @@ public class IndexController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Usuario usuario, RedirectAttributes attributes) {
-		
+
 		if (usuarioRepository.findByEmail(usuario.getEmail()) != null) {
-			
+
 			Usuario u = usuarioRepository.findByEmail(usuario.getEmail());
 			if (u.getSenha().equals(usuario.getSenha())) {
-				cpf = u.getCpf();
+				if (u.getCpf()!=null)
+					cpf=u.getCpf();
+				else if (u.getCnpj() != null)
+					cnpj=u.getCnpj();
 				return "redirect:/home";
 			}
 			attributes.addFlashAttribute("mensagem", "Email ou senha incorretos");
@@ -90,7 +93,11 @@ public class IndexController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("home");
-		Usuario usuario = usuarioRepository.findByCpf(cpf);
+		Usuario usuario=null;
+		if (cpf != null)
+			usuario = usuarioRepository.findByCpf(cpf);
+		else if (cnpj != null)
+			usuario = usuarioRepository.findByCnpj(cnpj);
 		mv.addObject("usuario", usuario);
 		return mv;
 	}
@@ -98,12 +105,16 @@ public class IndexController {
 	@RequestMapping(value = "/consultaSaldo", method = RequestMethod.GET)
 	public ModelAndView consultaSaldo() {
 		ModelAndView mav = new ModelAndView("transacoes/consultaSaldo");
-		mav.addObject("conta", contaRepository.findByCpf(cpf));
+		if (cpf != null)
+			mav.addObject("conta", contaRepository.findByCpf(cpf));
+		else if (cnpj != null)
+			mav.addObject("conta", contaRepository.findByCnpj(cnpj));
+
 		return mav;
 	}
 
 	@RequestMapping("/esqueceuSenha")
 	public String esqueceuSenha() {
-		return  "esqueceuSenha";
+		return "esqueceuSenha";
 	}
 }
