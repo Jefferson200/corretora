@@ -14,15 +14,17 @@ body{
 
 h1{
     text-align: center;
-    font-size: 400%;
-    color: #fff;
+    font-size: 7.5em;
+    color: #000040;
     text-shadow: 0 2px 2px #000;
+    font-family: Arial;
 }
 
 #secao1{
-    background-image:linear-gradient(rgb(82,82,223),rgb(50,37,109));
+    background-image:url(https://i.imgur.com/xh1R7Ej.jpg);
     background-size: cover;
     z-index: -1;
+    
 }
 
 #secao2{
@@ -32,17 +34,17 @@ h1{
 }
 
 #secao3{
-    background-image:linear-gradient(rgb(82,82,223),rgb(50,37,109));
-    background-size: cover;
+    background-color: #fff;    
+    
 }
 
 .slide {
     position: relative;
-    padding: 25% 10%;
+    padding: 10% 10%;
     min-height: 100%;
     width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 -1px 10px rgba(0, 0, .7);
+    box-shadow: 0 -1px 5px rgba(0, 0, .7);
     transform-style: inherit;
 }
 
@@ -53,13 +55,15 @@ h1{
 	font-family: 'Arial';
 	font-size: 1.05em;
 	font-weight: bold;
-	box-shadow: #27408B 1.5px 2px 1.5px;
+	box-shadow: #9f9fff.5px 2px 1.5px;
     z-index: auto;
+    
     
 }
 .menu ul{
 	list-style: none;
 	position: relative;
+	
 }
 
 .menu ul li{
@@ -73,23 +77,29 @@ h1{
 	text-decoration: none;
 	text-align: center;
 	background-color: #ffff;
-	color: #436EEE;
+	color: #000040;
+	
 }
 
 
 .menu ul ul{
+	
 	position: fixed;
 	visibility: hidden;
     margin: 0;
     padding: 0;
+    
+    
+    
 }
 
 .menu ul li:hover ul{
 	visibility: visible;
+	
 }
 
 .menu a:hover{
-    text-decoration: underline;
+   	border-bottom: 2px solid #0f0587;
     color: #000;
 }
 
@@ -97,6 +107,7 @@ h1{
 	float: none;
 	border-bottom: solid 1px #ccc;
     padding: 0;
+    
 }
 
 #sair {
@@ -107,9 +118,27 @@ h1{
 #bt-sair{
 margin: 0;}
 
-p{
+.rodape{
 	
-	color:white;
-	font-size: 25px;
+	color:000040;
+	font-size: 1.1em;
 	text-align: center;
+}
+
+.nome{
+	font-family: Arial;
+	font-size: 0.8em;
+	
+}
+
+.cpf{
+	font-family: Arial;
+	font-size: 0.8em;
+}
+.cnpj{
+	font-family: Arial;
+	font-size: 0.8em;
+}
+.logorodape{
+	background-image:url(https://i.imgur.com/x3uvDq9.jpg);
 }

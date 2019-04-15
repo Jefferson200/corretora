@@ -10,16 +10,16 @@
 <nav class="menu">
 	<ul>
 		<li><a href="#">Home</a></li>
-		<li><a href="#">opções</a>
+		<li><a href="#">Minha conta</a>
 			<ul>
 				<li><a href="consultaSaldo">Saldo</a></li>
 				<li><a href="#">Transações</a></li>
 				<li><a href="emprestimo">Emprestimo</a></li>
 			</ul></li>
-		<li>NOME - <span th:text="${usuario.nome}"></span></li>
+		<li class="nome">Olá, <span th:text="${usuario.nome}"></span></li>
 		
-		<li th:if="${not #strings.isEmpty(usuario.cpf)}">CPF - <span th:text="${usuario.cpf}"></span></li>
-		<li th:if="${not #strings.isEmpty(usuario.cnpj)}">CNPJ - <span th:text="${usuario.cnpj}"></span></li>
+		<li class="cpf" th:if="${not #strings.isEmpty(usuario.cpf)}">CPF - <span th:text="${usuario.cpf}"></span></li>
+		<li class="cnpj"th:if="${not #strings.isEmpty(usuario.cnpj)}">CNPJ - <span th:text="${usuario.cnpj}"></span></li>
 
 
 
@@ -36,7 +36,7 @@
 	
 <body>
     <section id="secao1" class="slide">
-        <h1>O-Bank</h1>
+ 
     </section>
     
     <section id="secao2" class="slide">
@@ -44,8 +44,10 @@
     </section>
     
     <footer id="secao3" class="slide">
-        
-		<p>	Copyright||&copy;</p>
+        <div id="logorodape">
+        <p class="rodape">	Torre III, Av. Guido Caloi, 1002 - Jardim São Luís, São Paulo - SP, 05802-140</p>
+        </div>
+		
 	
     </footer>
 </body>
