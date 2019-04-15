@@ -19,8 +19,8 @@
 			</ul></li>
 		<li>NOME - <span th:text="${usuario.nome}"></span></li>
 		
-		<li th:if="${not #strings.isEmpty(cpf)}">CPF - <span th:text="${usuario.cpf}"></span></li>
-		<li th:if="${not #strings.isEmpty(cnpj)}">CNPJ - <span th:text="${usuario.cnpj}"></span></li>
+		<li th:if="${not #strings.isEmpty(usuario.cpf)}">CPF - <span th:text="${usuario.cpf}"></span></li>
+		<li th:if="${not #strings.isEmpty(usuario.cnpj)}">CNPJ - <span th:text="${usuario.cnpj}"></span></li>
 
 
 
