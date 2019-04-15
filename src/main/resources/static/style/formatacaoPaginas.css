@@ -1,22 +1,50 @@
-*{
-	margin:0;
-	padding: 0;
-}
-
-
-
-
-body, html{
-	min-height: 100%;
+html{
+    height: 100%;
+    overflow: hidden;
 }
 
 body{
-	background-image: linear-gradient(#436EEE, #3A5FCD); 
-	background-repeat: no-repeat;
-	background-size: cover; 
-
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    perspective: 1px;
 }
 
+h1{
+    text-align: center;
+    font-size: 400%;
+    color: #fff;
+    text-shadow: 0 2px 2px #000;
+}
+
+#secao1{
+    background-image:linear-gradient(rgb(82,82,223),rgb(50,37,109));
+    background-size: cover;
+    z-index: -1;
+}
+
+#secao2{
+      background-image: url(https://i.imgur.com/177wydB.jpg);
+    transform: translateZ(-1px) scale(2);
+    z-index: -2;
+}
+
+#secao3{
+    background-image:linear-gradient(rgb(82,82,223),rgb(50,37,109));
+    background-size: cover;
+}
+
+.slide {
+    position: relative;
+    padding: 25% 10%;
+    min-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px rgba(0, 0, .7);
+    transform-style: inherit;
+}
 
 .menu{
 	width: 100%;
@@ -26,6 +54,8 @@ body{
 	font-size: 1.05em;
 	font-weight: bold;
 	box-shadow: #27408B 1.5px 2px 1.5px;
+    z-index: auto;
+    
 }
 .menu ul{
 	list-style: none;
@@ -50,6 +80,8 @@ body{
 .menu ul ul{
 	position: fixed;
 	visibility: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .menu ul li:hover ul{
@@ -57,80 +89,27 @@ body{
 }
 
 .menu a:hover{
-	background-color: #4876FF;
-	color: #fff; 
+    text-decoration: underline;
+    color: #000;
 }
 
 .menu ul ul li{
 	float: none;
 	border-bottom: solid 1px #ccc;
+    padding: 0;
 }
 
-
-
-
-
-@media(max-width: 800px){
-	body{
-	background-image: linear-gradient(#27408B, #3A5FCD, #436EEE); 
-	background-size: cover; 
-
-}
-	
-	#bt_menu:checked ~ .menu{
-		margin-left: 0;
-
-	}
-	.menu{
-		margin-top: 5px;
-		font-family: Graphik,'Gotham SSm A','Gotham SSm B','Helvetica Neue';
-		transition: all .4s;
-	}
-	.menu ul li{
-		width: 100%;
-		float: none;
-
-	}
-
-	.menu ul ul{
-		position: static;
-		overflow: hidden;
-		max-height: 0;
-		transition: all .4s;
-	}
-
-	.menu ul li:hover ul{
-		height: auto;
-		max-height: 100px; 
-	}
+#sair {
+    float: right;
+   
 }
 
-#nomeMenu{
-	background-color: #FFFFFF;
-	text-color: #FFFFFF;
-}
+#bt-sair{
+margin: 0;}
 
 p{
-	color:#f0f0f0;
-	text-align: center;
-
-}
-
-.area{
-	width: 100%;
-	max-width: 100%;
-	padding: 80px;
-	color: #000000;
-	text-shadow: 1px 1px 0 rgba(0,0,0..2);
-	text-align: center;
 	
-
-}
-	
-.rodape p{
-	background-color: #436EEE;
 	color:white;
 	font-size: 25px;
-	margin-top: 400px;
 	text-align: center;
 }
