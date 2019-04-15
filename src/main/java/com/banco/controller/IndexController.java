@@ -72,15 +72,17 @@ public class IndexController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Usuario usuario, RedirectAttributes attributes) {
-
+			cpf=null;
+			cnpj=null;
+			
 		if (usuarioRepository.findByEmail(usuario.getEmail()) != null) {
 
 			Usuario u = usuarioRepository.findByEmail(usuario.getEmail());
 			if (u.getSenha().equals(usuario.getSenha())) {
-				if (u.getCpf()!=null)
-					cpf=u.getCpf();
+				if (u.getCpf() != null)
+					cpf = u.getCpf();
 				else if (u.getCnpj() != null)
-					cnpj=u.getCnpj();
+					cnpj = u.getCnpj();
 				return "redirect:/home";
 			}
 			attributes.addFlashAttribute("mensagem", "Email ou senha incorretos");
@@ -93,11 +95,14 @@ public class IndexController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("home");
-		Usuario usuario=null;
-		if (cpf != null)
+		Usuario usuario = null;
+		if (cpf != null) {
 			usuario = usuarioRepository.findByCpf(cpf);
-		else if (cnpj != null)
+			System.out.println(cpf);
+		} else if (cnpj != null) {
 			usuario = usuarioRepository.findByCnpj(cnpj);
+			System.out.println(cnpj);
+		}
 		mv.addObject("usuario", usuario);
 		return mv;
 	}
