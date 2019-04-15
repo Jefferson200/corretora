@@ -26,6 +26,8 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public String index() {
+		cpf=null;
+		cnpj=null;
 		return "index";
 	}
 
