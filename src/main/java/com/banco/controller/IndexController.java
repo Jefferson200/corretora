@@ -26,8 +26,8 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public String index() {
-		cpf=null;
-		cnpj=null;
+		cpf = null;
+		cnpj = null;
 		return "index";
 	}
 
@@ -74,9 +74,9 @@ public class IndexController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Usuario usuario, RedirectAttributes attributes) {
-			cpf=null;
-			cnpj=null;
-			
+		cpf = null;
+		cnpj = null;
+
 		if (usuarioRepository.findByEmail(usuario.getEmail()) != null) {
 
 			Usuario u = usuarioRepository.findByEmail(usuario.getEmail());
@@ -123,5 +123,43 @@ public class IndexController {
 	@RequestMapping("/esqueceuSenha")
 	public String esqueceuSenha() {
 		return "esqueceuSenha";
+	}
+
+	@RequestMapping(value = "/emprestimo", method = RequestMethod.GET)
+	public ModelAndView emprestimo() {
+		ModelAndView mav = new ModelAndView("transacoes/emprestimo");
+		if (cpf != null)
+			mav.addObject("conta", contaRepository.findByCpf(cpf));
+		else if (cnpj != null)
+			mav.addObject("conta", contaRepository.findByCnpj(cnpj));
+		return mav;
+
+	}
+
+	@RequestMapping(value = "/emprestimo", method = RequestMethod.POST)
+	public ModelAndView emprestimo(String var) {
+		ModelAndView mav = new ModelAndView("transacoes/emprestimo");
+		Conta conta=null;
+		double juros=0.0;
+		if (cpf != null) {
+			conta=contaRepository.findByCpf(cpf);
+			mav.addObject("conta", conta);
+			if(conta.getSalarioLiquido()<1000) {
+				juros=0.02;
+				mav.addObject("juros", juros);
+			}else if(conta.getSalarioLiquido()<5000) {
+				juros=0.05;
+				mav.addObject("juros", juros);
+			}else {
+				juros=0.1;
+				mav.addObject("juros", juros);
+			}
+			
+			
+		} else if (cnpj != null) {
+			mav.addObject("conta", contaRepository.findByCnpj(cnpj));
+		}
+		return mav;
+
 	}
 }

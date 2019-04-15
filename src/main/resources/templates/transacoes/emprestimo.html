@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>A melhor Solução</title>
+
+
+<script type="text/javascript">
+ function valor( valor){
+	 
+ }
+</script>
+
+
+</head>
+<body>
+<h1>Temos a solução certa para você</h1>
+<div> 
+
+<p>Saldo em Conta: </p>
+<span th:text="${conta.saldo}"></span>
+
+
+<p> Disponivel para contratação</p>
+<span th:text="${}"></span>
+
+<label>Qual valor deseja contratar</label>
+<input type="text" min=0 name="valorContratado" th:max="${conta.saldo}"/>
+
+<label for="opcao">Quantidade de parcelas: </label>
+<select name="opcao" onchange="valor(this.value)">
+	<option value= "12" >12x</option>
+	<option value= "24">24x</option>
+	<option value= "36">36x</option>
+ </select>
+
+<p></p>
+
+
+
+</div>
+</body>
+</html>
