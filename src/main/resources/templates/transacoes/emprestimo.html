@@ -10,8 +10,8 @@
 	function valor(parcelas) {
 		var valor= document.getElementById("valorContratado").value;
 		var juros="[[${juros}]]";
-		
-		var resultado=  valor*juros+valor;
+		var resultado=0;
+		 resultado=  (parseInt(valor)  +parseInt(valor)*juros)/parcelas;
 		
 	 document.getElementById("valorCampo").value=resultado;
 
@@ -43,7 +43,7 @@
 		
 		
 		<label> Valor das parcelas: </label>
-		<input type="text" id="valorCampo" name="valorCampo" readonly="true"/>
+		<input type="number" id="valorCampo" name="valorCampo" readonly="true"/>
 
 		<button type="submit">Contratar</button>
 	</form>
