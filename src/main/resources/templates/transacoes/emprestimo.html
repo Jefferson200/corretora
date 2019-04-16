@@ -7,12 +7,13 @@
 
 <script type="text/javascript" >
     
-	function valor(valor1) {
+	function valor(parcelas) {
+		var valor= document.getElementById("valorContratado").value;
+		var juros="[[${juros}]]";
 		
+		var resultado=  valor*juros+valor;
 		
-	 document.getElementById("valorCampo").value=valor1;
-		
-		
+	 document.getElementById("valorCampo").value=resultado;
 
 	}
 
@@ -31,7 +32,7 @@
 		<label>Valor: disponivel para contratação</label> 
 			<span th:text="${disponivel}"></span>
 			<label>Qual	valor deseja contratar</label>
-			 <input type="number" min=0	name="valorContratado" th:max="${disponivel}" />
+			 <input type="number" min=0	name="valorContratado" id="valorContratado" th:max="${disponivel}" />
 			 <label for="opcao">Quantidade de parcelas: </label>
 			 
 		<select name="opcao" onchange="valor(this.value)">
