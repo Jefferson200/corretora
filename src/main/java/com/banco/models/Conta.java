@@ -11,6 +11,11 @@ public class Conta {
 	@Id
 	@GeneratedValue
 	private int id;
+	
+	@NotNull
+	private int agencia;
+	@NotNull
+	private int numeroConta;
 
 	private String cpf;
 	
@@ -23,6 +28,7 @@ public class Conta {
 	private double salarioBruto;
 	@NotNull
 	private double salarioLiquido;
+	
 	
 	public Conta() {}
 	
