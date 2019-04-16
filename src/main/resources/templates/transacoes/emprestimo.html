@@ -6,39 +6,37 @@
 
 
 <script type="text/javascript">
- function valor( valor){
-	 
- }
+	function valor(valor) {
+		
+	}
 </script>
 
 
 </head>
 <body>
-<h1>Temos a solução certa para você</h1>
+	<h1>Temos a solução certa para você</h1>
 
 
-<form method="post">
+	<form method="post">
 
-<label> Saldo: </label>
-<span th:text="${conta.saldo}"></span>
+		<label> Saldo: </label> <span th:text="${conta.saldo}"></span> 
+		<label>Valor: disponivel para contratação</label> 
+			<span th:text="${disponivel}"></span>
+			<label>Qual	valor deseja contratar</label>
+			
+			 <input type="number" min=0	name="valorContratado" th:max="${disponivel}" />
+			 <label for="opcao">Quantidade de parcelas: </label>
+		<select name="opcao" onchange="valor(this.value)">
+			<option value="12">12x</option>
+			<option value="24">24x</option>
+			<option value="36">36x</option>
+		</select>
+		
+		
+		<label> </label>
 
-
-<label>Valor disponivel para contratação</label>
-<input th:value="${disponivel}"/>
-
-
-<label>Qual valor deseja contratar</label>
-<input type="number" min=0 name="valorContratado" th:max="${disponivel}"/>
-
-<label for="opcao">Quantidade de parcelas: </label>
-<select name="opcao" onchange="valor(this.value)">
-	<option value= "12" >12x</option>
-	<option value= "24">24x</option>
-	<option value= "36">36x</option>
- </select>
-
-<button type="submit">Contratar</button>
-</form>
+		<button type="submit">Contratar</button>
+	</form>
 
 
 
