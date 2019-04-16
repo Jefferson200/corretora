@@ -166,4 +166,11 @@ public class IndexController {
 		return mav;
 
 	}
+	@RequestMapping(value="/transacoes", method=RequestMethod.GET)
+	public ModelAndView transferencia() {
+		ModelAndView maview = 	new ModelAndView("transacoes/transacoes");
+		return maview;
+	}
+	
+	
 }
