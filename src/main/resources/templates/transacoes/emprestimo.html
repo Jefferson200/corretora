@@ -5,13 +5,18 @@
 <title>A melhor Solução</title>
 
 
-<script type="text/javascript" src="js/script.js">
+<script type="text/javascript" >
+    
 	function valor(valor1) {
-		var var1= document.getElementById('valorCampo');
-		var1.val(valor1);
-		var1=valor1;
+		
+		
+	 document.getElementById("valorCampo").value=valor1;
+		
+		
 
 	}
+
+	
 </script>
 
 
@@ -37,7 +42,7 @@
 		
 		
 		<label> Valor das parcelas: </label>
-		<input type="number" id="valorCampo" name="valorCampo" readonly="true"/>
+		<input type="text" id="valorCampo" name="valorCampo" readonly="true"/>
 
 		<button type="submit">Contratar</button>
 	</form>
