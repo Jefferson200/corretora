@@ -5,9 +5,12 @@
 <title>A melhor Solução</title>
 
 
-<script type="text/javascript">
-	function valor(valor) {
-		
+<script type="text/javascript" src="js/script.js">
+	function valor(valor1) {
+		var var1= document.getElementById('valorCampo');
+		var1.val(valor1);
+		var1=valor1;
+
 	}
 </script>
 
@@ -23,9 +26,9 @@
 		<label>Valor: disponivel para contratação</label> 
 			<span th:text="${disponivel}"></span>
 			<label>Qual	valor deseja contratar</label>
-			
 			 <input type="number" min=0	name="valorContratado" th:max="${disponivel}" />
 			 <label for="opcao">Quantidade de parcelas: </label>
+			 
 		<select name="opcao" onchange="valor(this.value)">
 			<option value="12">12x</option>
 			<option value="24">24x</option>
@@ -33,7 +36,8 @@
 		</select>
 		
 		
-		<label> </label>
+		<label> Valor das parcelas: </label>
+		<input type="number" id="valorCampo" name="valorCampo" readonly="true"/>
 
 		<button type="submit">Contratar</button>
 	</form>

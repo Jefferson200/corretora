@@ -100,10 +100,10 @@ public class IndexController {
 		Usuario usuario = null;
 		if (cpf != null) {
 			usuario = usuarioRepository.findByCpf(cpf);
-			
+
 		} else if (cnpj != null) {
 			usuario = usuarioRepository.findByCnpj(cnpj);
-			
+
 		}
 		mv.addObject("usuario", usuario);
 		return mv;
@@ -128,42 +128,40 @@ public class IndexController {
 	@RequestMapping(value = "/emprestimo", method = RequestMethod.GET)
 	public ModelAndView emprestimo() {
 		ModelAndView mav = new ModelAndView("transacoes/emprestimo");
-		Conta conta=null;
-		double juros=0.0;
-		
+		Conta conta = null;
+		double juros = 0.0;
+
 		if (cpf != null) {
-			conta=contaRepository.findByCpf(cpf);
+			conta = contaRepository.findByCpf(cpf);
 			mav.addObject("conta", conta);
-			mav.addObject("disponivel", (conta.getSalarioLiquido()/2)*12);
-			System.out.println("o valor é de: "+(conta.getSalarioLiquido()/2)*12);
-			if(conta.getSalarioLiquido()<1000) {
-				juros=0.02;
+			mav.addObject("disponivel", (conta.getSalarioLiquido() / 2) * 12);
+			if (conta.getSalarioLiquido() < 1000) {
+				juros = 0.02;
 				mav.addObject("juros", juros);
-				
-			}else if(conta.getSalarioLiquido()<5000) {
-				juros=0.05;
+
+			} else if (conta.getSalarioLiquido() < 5000) {
+				juros = 0.05;
 				mav.addObject("juros", juros);
-				
-			}else {
-				juros=0.1;
+
+			} else {
+				juros = 0.1;
 				mav.addObject("juros", juros);
 			}
-			
-			
+
 		} else if (cnpj != null) {
-			conta=contaRepository.findByCpf(cnpj);
+			conta = contaRepository.findByCpf(cnpj);
 			mav.addObject("conta", conta);
-			mav.addObject("disponivel", (conta.getSalarioLiquido()/2)*12);
-			if(conta.getSalarioLiquido()<10000) {
-				juros=0.03;
+			mav.addObject("disponivel", (conta.getSalarioLiquido() / 2) * 12);
+			if (conta.getSalarioLiquido() < 10000) {
+				juros = 0.03;
 				mav.addObject("juros", juros);
-				
-			}else if(conta.getSalarioLiquido()<50000) {
-				juros=0.07;
+
+			} else if (conta.getSalarioLiquido() < 50000) {
+				juros = 0.07;
 				mav.addObject("juros", juros);
-				
-			}else {
-				juros=0.1;
+
+			} else {
+				juros = 0.1;
 				mav.addObject("juros", juros);
 			}
 		}
@@ -174,7 +172,7 @@ public class IndexController {
 	@RequestMapping(value = "/emprestimo", method = RequestMethod.POST)
 	public ModelAndView emprestimo(String var) {
 		ModelAndView mav = new ModelAndView("transacoes/emprestimo");
-		
+
 		return mav;
 
 	}
