@@ -184,5 +184,35 @@ public class IndexController {
 		return mav;
 
 	}
+	@RequestMapping(value="/transacoes", method=RequestMethod.POST)
+	public String setTransferencia(int valorTransferencia, int numeroConta, int agencia) {
+		if(cpf != null) {
+			Conta c = contaRepository.findByCpf(cpf);
+			if(c.getSaldo() >= valorTransferencia) {
+				c.setSaldo(c.getSaldo() - valorTransferencia);
+				Conta transferida = contaRepository.findByNumeroConta(numeroConta);
+				transferida.setSaldo(transferida.getSaldo() + valorTransferencia );
+				contaRepository.save(c);
+				return "redirect:/transacoes";
+			}
+		}
+		else if(cnpj != null){
+			Conta c = contaRepository.findByCnpj(cnpj);
+			if(c.getSaldo() >= valorTransferencia) {
+				c.setSaldo(c.getSaldo() - valorTransferencia);
+				Conta transferida = contaRepository.findByNumeroConta(numeroConta);
+				transferida.setSaldo(transferida.getSaldo() + valorTransferencia );
+				contaRepository.save(c);
+				return "redirect:/transacoes";
+			}
+		}
+		
+		return "redirect:/transacoes";
+		
+		
+		
+		
+	}
+	
 
 }
